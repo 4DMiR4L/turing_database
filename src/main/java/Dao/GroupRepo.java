@@ -15,6 +15,7 @@ public class GroupRepo implements GroupDao {
         String query = "INSERT INTO groups (name, description) VALUES (?, ?)";
         try (Connection conn = DatabaseConfig.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
+            System.out.println(conn);
             stmt.setString(1, group.getName());
             stmt.setString(2, group.getDescription());
             stmt.executeUpdate();

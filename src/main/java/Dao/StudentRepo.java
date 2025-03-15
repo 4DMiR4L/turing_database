@@ -16,6 +16,7 @@ public class StudentRepo implements StudentDao {
         String query = "INSERT INTO students (name, email, group_id) VALUES (?, ?, ?)";
         try (Connection conn = DatabaseConfig.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
+
             stmt.setString(1, student.getName());
             stmt.setString(2, student.getEmail());
             stmt.setInt(3, student.getGroupId());
